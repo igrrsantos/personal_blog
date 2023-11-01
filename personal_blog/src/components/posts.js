@@ -4,7 +4,7 @@ function Posts(props) {
   return (
     <div>
       <div>Aqui estão os posts</div>
-      {props?.posts.map((post) => {
+      {props?.posts?.map((post) => {
         console.log(props)
         return (
           <div key={post.id}>

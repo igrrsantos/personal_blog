@@ -28,5 +28,12 @@ module PersonalBlog
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.middleware.use ActionDispatch::Session::CookieStore,
+                          key: 'personal_blog_session', # Defina um nome único para a chave da sessão.
+                          expire_after: 1.hour, # Defina o tempo de expiração da sessão, se desejar.
+                          secure: Rails.env.production?, # Garante que os cookies de sessão sejam seguros em produção.
+                          httponly: true, # Impede que os cookies de sessão sejam acessados via JavaScript.
+                          same_site: :strict # Define a política SameSite para cookies de sessão.
+
   end
 end
