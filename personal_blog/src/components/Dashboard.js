@@ -1,13 +1,27 @@
-// Dashboard.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-function Dashboard() {
+// Supondo que você tenha um componente 'Tweet' que renderiza individualmente cada tweet
+import Post from './post';
+import useListPosts from '../hooks/useListPosts';
+
+const Dashboard = () => {
+  const { posts } = useListPosts();
+
   return (
-    <div className="container">
-      <h2>Bem-vindo ao Dashboard</h2>
-      {/* Adicione conteúdo adicional do painel aqui */}
+    <div>
+      {posts.length > 0 ? (
+        <ul>
+          {posts.map((post) => (
+            <li key={post.id}>
+              <Post user={post.user} content={post.content} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Carregando tweets...</p>
+      )}
     </div>
   );
-}
+};
 
 export default Dashboard;

@@ -22,6 +22,6 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-    params.require(resource_name).permit(:email, :password)
+    params.require(resource_name).permit(:email, :name, :password)
   end
 end

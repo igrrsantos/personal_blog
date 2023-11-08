@@ -5,8 +5,10 @@ ruby '3.2.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 7.1.1'
 
+gem 'active_model_serializers'
 gem 'devise'
 gem 'rack-cors'
+gem 'rspec'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
@@ -42,6 +44,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-meta'
+  gem 'rspec-rails'
 end
 
 group :development do

@@ -174,8 +174,8 @@ Devise.setup do |config|
 
   # Options to be passed to the created cookie. For instance, you can set
   # secure: true in order to force SSL only cookies.
-  config.cookie_serializer = :json
-  config.rememberable_options = { key: 'personal_blog_session' }
+  # config.cookie_serializer = :json
+  # config.rememberable_options = { key: 'personal_blog_session' }
 
   # ==> Configuration for :validatable
   # Range for password length.

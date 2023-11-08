@@ -1,15 +1,7 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import CreateAccount from './CreateAccount'
 import useCreateSession from '../hooks/useCreateSession'
 
 function Login(isUserLoggedIn) {
-  const history = useNavigate()
-  console.log(isUserLoggedIn)
-  console.log('USUÁRIO LOGADOOO')
-
-
-
   const [params, setParams] = useState({});
   const { createSession } = useCreateSession();
 
@@ -26,7 +18,6 @@ function Login(isUserLoggedIn) {
   const handleLogin = (e) => {
     e.preventDefault();
     createSession(params)
-    // history.push('/dashboard')
   }
 
   return (

@@ -3,7 +3,7 @@ class Api::V1::PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user).all
 
     render json: @posts
   end
