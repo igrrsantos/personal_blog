@@ -2,13 +2,16 @@ import React from 'react'
 import Post from './Post'
 import { Col, Container, Row } from 'react-bootstrap'
 import NewPostBox from './NewPostBox'
+import useListPosts from '../hooks/useListPosts'
 
-const Timeline = ({ posts }) => {
+const Timeline = () => {
+  const { posts, fetchPosts } = useListPosts()
+
   return (
     <Container>
       <Row>
         <Col>
-          <NewPostBox />
+          <NewPostBox fetchPosts={fetchPosts}/>
           {posts.map(post => (
             <Post
               key={post.id}

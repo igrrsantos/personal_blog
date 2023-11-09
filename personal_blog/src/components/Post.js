@@ -1,22 +1,33 @@
-import React from 'react'
-import { Card } from 'react-bootstrap'
-import { format, utcToZonedTime } from 'date-fns-tz'
+import React from 'react';
+import { Card, Image } from 'react-bootstrap';
+import { format, utcToZonedTime } from 'date-fns-tz';
+import nopicture from './nopicture.png'
 
-const Post = ({ username, content, timestamp }) => {
-  const ISODateString = timestamp
-  const timezone = 'America/Sao_Paulo'
-  const zonedDate = utcToZonedTime(ISODateString, timezone)
-  const formattedDate = format(zonedDate, 'dd/MM/yyyy HH:mm:ss', { timeZone: timezone })
+const Post = ({ username, content, timestamp, userImage }) => {
+  const ISODateString = timestamp;
+  const timezone = 'America/Sao_Paulo';
+  const zonedDate = utcToZonedTime(ISODateString, timezone);
+  const formattedDate = format(zonedDate, 'dd/MM/yyyy HH:mm:ss', { timeZone: timezone });
 
   return (
     <Card className="mb-2">
       <Card.Body>
-        <Card.Title>{username}</Card.Title>
-        <Card.Text>{content}</Card.Text>
-        <Card.Subtitle className="mb-2 text-muted">{formattedDate}</Card.Subtitle>
+        <div className="d-flex align-items-center">
+          <Image
+            src={nopicture}
+            alt={username}
+            roundedCircle
+            style={{ width: '50px', height: '50px', marginRight: '10px' }}
+          />
+          <div className="d-flex">
+            <Card.Title>{username}</Card.Title>
+            <div style={{ marginLeft: '20px', fontSize: '15px'}} className="mb-2 text-muted">{formattedDate}</div>
+          </div>
+        </div>
+        <Card.Text style={{ marginLeft: '60px'}}>{content}</Card.Text>
       </Card.Body>
     </Card>
-  )
+  );
 }
 
-export default Post
+export default Post;

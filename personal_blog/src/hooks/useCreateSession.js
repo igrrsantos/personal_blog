@@ -7,25 +7,21 @@ const useCreateSession = () => {
   const navigate = useNavigate()
 
   const createSession = async (userData) => {
-    console.log('userData')
-    console.log(userData)
-    console.log('userData')
     try {
       const response = await axios.post(`${API_URL}/users/sign_in`, {
         ...userData,
       });
 
       if (response.status === 200) {
-        console.log(response)
-        // A conta foi criada com sucesso
+        // A sessão foi criada com sucesso
         navigate('/dashboard')
         return true;
       } else {
-        // A criação da conta falhou
+        // A criação da sessão falhou
         return false;
       }
     } catch (error) {
-      console.error('Erro ao criar conta:', error);
+      console.error('Erro ao criar sessão:', error);
       return false;
     }
   };

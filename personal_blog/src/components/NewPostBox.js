@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Card, Form, Button } from 'react-bootstrap'
+import useCreatePost from '../hooks/useCreatePost'
 
-const NewPostBox = () => {
+const NewPostBox = ({ fetchPosts }) => {
   const [postContent, setPostContent] = useState('')
   const [image, setImage] = useState(null)
+  const { createPost } = useCreatePost()
 
   const handleContentChange = (e) => {
     setPostContent(e.target.value)
@@ -13,10 +15,18 @@ const NewPostBox = () => {
     setImage(e.target.files[0])
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Implemente a lógica de submissão aqui
-    console.log(postContent, image)
+    const params = {
+      user_id: 4,
+      content: postContent,
+    }
+
+    const result = await createPost(params)
+
+    if (result) {
+      fetchPosts()
+    }
   }
 
   return (

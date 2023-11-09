@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import useCreateUser from '../hooks/useCreateUser'
+import '../App.css'
 
 function CreateAccount() {
   const [params, setParams] = useState({})
@@ -21,48 +23,47 @@ function CreateAccount() {
   }
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 mx-auto">
-          <h2 className="my-4">Criar Conta</h2>
-          <form onSubmit={handleSubmit}>
-          <div className="form-group">
-              <input
+    <Container className="custom-margin">
+      <Row>
+        <Col md={6} className="mx-auto">
+          <h2 className="text-center my-4">Criar Conta</h2>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
+              <Form.Control
                 type="text"
-                className="form-control"
                 placeholder="Nome"
-                name='name'
+                name="name"
                 value={params.name}
                 onChange={handleChange}
               />
-            </div>
-            <div className="form-group">
-              <input
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Control
                 type="email"
-                className="form-control"
-                placeholder="Novo Email"
-                name='email'
+                placeholder="Email"
+                name="email"
                 value={params.email}
                 onChange={handleChange}
               />
-            </div>
-            <div className="form-group">
-              <input
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Control
                 type="password"
-                className="form-control"
-                placeholder="Nova Senha"
-                name='password'
+                placeholder="Senha"
+                name="password"
                 value={params.password}
                 onChange={handleChange}
               />
+            </Form.Group>
+            <div className="text-center">
+              <Button variant="success" type="submit">
+                Criar Conta
+              </Button>
             </div>
-            <button className="btn btn-success" type="submit">
-              Criar Conta
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 

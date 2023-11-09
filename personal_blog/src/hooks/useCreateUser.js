@@ -1,8 +1,9 @@
-// import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const useCreateUser = () => {
   const API_URL = 'http://localhost:3000/api/v1'
+  const navigate = useNavigate()
 
   const createUser = async (userData) => {
     try {
@@ -12,6 +13,7 @@ const useCreateUser = () => {
 
       if (response.status === 200) {
         // A conta foi criada com sucesso
+        navigate('/dashboard')
         return true;
       } else {
         // A criação da conta falhou

@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import useCreateSession from '../hooks/useCreateSession'
 
-function Login(isUserLoggedIn) {
+
+function Login() {
   const [params, setParams] = useState({})
   const { createSession } = useCreateSession()
 
@@ -21,43 +23,38 @@ function Login(isUserLoggedIn) {
   }
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 mx-auto">
-          <h2 className="my-4">Login</h2>
-          <form>
-            <div className="form-group">
-              <input
+    <Container className="custom-margin">
+      <Row>
+        <Col md={6} className="mx-auto">
+          <h2 className="text-center my-4">Login</h2>
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Control
                 type="email"
-                className="form-control"
                 placeholder="Email"
-                name='email'
+                name="email"
                 value={params.email}
                 onChange={handleChange}
               />
-            </div>
-            <div className="form-group">
-              <input
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Control
                 type="password"
-                className="form-control"
                 placeholder="Senha"
-                name='password'
+                name="password"
                 value={params.password}
                 onChange={handleChange}
               />
-            </div>
-            <div>
-              <button className="btn btn-primary" onClick={handleLogin}>
+            </Form.Group>
+            <div className="text-center">
+              <Button variant="primary" onClick={handleLogin}>
                 Entrar
-              </button>
-              {/* <button className="btn btn-success" onClick={CreateAccount()}>
-                Criar Conta
-              </button> */}
+              </Button>
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
