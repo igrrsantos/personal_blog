@@ -9,6 +9,7 @@ gem 'active_model_serializers'
 gem 'devise'
 gem 'rack-cors'
 gem 'rspec'
+gem 'rubocop'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'

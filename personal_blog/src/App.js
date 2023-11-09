@@ -3,14 +3,10 @@ import './App.css'
 import CreateAccount from './components/CreateAccount'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
-// import Posts from './components/posts'
-// import useListPosts from './hooks/useListPosts'
 
 function App() {
-  const userToken = localStorage.getItem('userToken');
-  const isUserLoggedIn = !!userToken;
-
-  // const { posts } = useListPosts()
+  const userToken = localStorage.getItem('userToken')
+  const isUserLoggedIn = !!userToken
 
   return (
     <Router>
@@ -20,7 +16,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
-  );
+  )
 }
 
 export default App

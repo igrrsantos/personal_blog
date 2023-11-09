@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import useCreateUser from '../hooks/useCreateUser';
+import React, { useState } from 'react'
+import useCreateUser from '../hooks/useCreateUser'
 
 function CreateAccount() {
-  const [params, setParams] = useState({});
-  const { createUser } = useCreateUser();
+  const [params, setParams] = useState({})
+  const { createUser } = useCreateUser()
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setParams({
       api_v1_user: {
         ...params.api_v1_user,
         [name]: value
       },
-    });
-  };
+    })
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     createUser(params)
   }
 
@@ -26,6 +26,16 @@ function CreateAccount() {
         <div className="col-md-6 mx-auto">
           <h2 className="my-4">Criar Conta</h2>
           <form onSubmit={handleSubmit}>
+          <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Nome"
+                name='name'
+                value={params.name}
+                onChange={handleChange}
+              />
+            </div>
             <div className="form-group">
               <input
                 type="email"
@@ -53,7 +63,7 @@ function CreateAccount() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default CreateAccount;
+export default CreateAccount

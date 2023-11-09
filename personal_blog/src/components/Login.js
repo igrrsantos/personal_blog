@@ -2,21 +2,21 @@ import React, { useState } from 'react'
 import useCreateSession from '../hooks/useCreateSession'
 
 function Login(isUserLoggedIn) {
-  const [params, setParams] = useState({});
-  const { createSession } = useCreateSession();
+  const [params, setParams] = useState({})
+  const { createSession } = useCreateSession()
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setParams({
       api_v1_user: {
         ...params.api_v1_user,
         [name]: value
       },
-    });
-  };
+    })
+  }
 
   const handleLogin = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     createSession(params)
   }
 

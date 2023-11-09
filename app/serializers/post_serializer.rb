@@ -1,4 +1,4 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :content
-  belongs_to :user, only: [:id, :name]
+  attributes :id, :content, :created_at
+  belongs_to :user, only: %i[id name]
 end
