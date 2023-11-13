@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
-import { Form, Button, Container } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Form, Button, Container } from 'react-bootstrap'
 
 const EditProfile = () => {
-  const [name, setName] = useState('');
-  const [photo, setPhoto] = useState('');
-  const [bio, setBio] = useState('');
+  const [name, setName] = useState('')
+  const [photo, setPhoto] = useState('')
+  const [bio, setBio] = useState('')
 
   const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
+    setName(e.target.value)
+  }
 
   const handlePhotoChange = (e) => {
-    setPhoto(e.target.value);
-  };
+    setPhoto(e.target.value)
+  }
 
   const handleBioChange = (e) => {
-    setBio(e.target.value);
-  };
+    setBio(e.target.value)
+  }
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    console.log('Selected File:', file.name);
-  };
+    const file = e.target.files[0]
+    console.log('Selected File:', file.name)
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Nome:', name);
-    console.log('Foto:', photo);
-    console.log('Biografia:', bio);
-  };
+    e.preventDefault()
+    console.log('Nome:', name)
+    console.log('Foto:', photo)
+    console.log('Biografia:', bio)
+  }
 
   return (
     <Container className="custom-margin" style={{ maxWidth: '66%' }}>
@@ -68,7 +68,7 @@ const EditProfile = () => {
         </Button>
       </Form>
     </Container>
-  );
-};
+  )
+}
 
-export default EditProfile;
+export default EditProfile
