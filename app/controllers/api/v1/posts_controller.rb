@@ -13,7 +13,6 @@ class Api::V1::PostsController < ApplicationController
     render json: @post
   end
 
-  # POST /posts
   def create
     @post = Post.new(post_params)
 
