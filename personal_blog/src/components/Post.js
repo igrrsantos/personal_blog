@@ -1,13 +1,13 @@
-import React from 'react';
-import { Card, Image } from 'react-bootstrap';
-import { format, utcToZonedTime } from 'date-fns-tz';
+import React from 'react'
+import { Card, Image } from 'react-bootstrap'
+import { format, utcToZonedTime } from 'date-fns-tz'
 import nopicture from './nopicture.png'
 
 const Post = ({ username, content, timestamp, userImage }) => {
-  const ISODateString = timestamp;
-  const timezone = 'America/Sao_Paulo';
-  const zonedDate = utcToZonedTime(ISODateString, timezone);
-  const formattedDate = format(zonedDate, 'dd/MM/yyyy HH:mm:ss', { timeZone: timezone });
+  const ISODateString = timestamp
+  const timezone = 'America/Sao_Paulo'
+  const zonedDate = utcToZonedTime(ISODateString, timezone)
+  const formattedDate = format(zonedDate, 'dd/MM/yyyy HH:mm:ss', { timeZone: timezone })
 
   return (
     <Card className="mb-2">
@@ -27,7 +27,7 @@ const Post = ({ username, content, timestamp, userImage }) => {
         <Card.Text style={{ marginLeft: '60px'}}>{content}</Card.Text>
       </Card.Body>
     </Card>
-  );
+  )
 }
 
-export default Post;
+export default Post

@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Sidebar from './Sidebar'
 import Timeline from './Timeline'
 
-function App() {
+function Dashboard() {
   return (
     <Container fluid className='custom-margin' style={{ maxWidth: '80%' }}>
       <Row className="justify-content-center">
@@ -18,4 +18,4 @@ function App() {
   )
 }
 
-export default App
+export default Dashboard

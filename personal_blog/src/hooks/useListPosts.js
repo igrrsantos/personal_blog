@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 const API_URL = 'http://localhost:3000/api/v1'
 
 function fetchPosts() {
-  console.log('aaaaaa')
   return axios.get(`${API_URL}/posts`)
     .then((response) => response.data)
     .catch((errors) => {

@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Navbar, Nav, Button, Container } from 'react-bootstrap';
-import './NavBar.css';
-import logo from './logo.png';
+import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { Navbar, Nav, Button, Container } from 'react-bootstrap'
+import './NavBar.css'
+import logo from './logo.png'
 
 const NavBar = () => {
-  const location = useLocation();
-  const showBackButton = location.pathname !== '/';
+  const location = useLocation()
+  const showBackButton = location.pathname !== '/'
 
   return (
     <>
@@ -30,7 +30,7 @@ const NavBar = () => {
         </Container>
       </Navbar>
     </>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

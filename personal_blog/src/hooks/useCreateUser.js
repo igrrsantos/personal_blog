@@ -1,5 +1,6 @@
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import Cookies from 'js-cookie'
+import { useNavigate } from 'react-router-dom'
 
 const useCreateUser = () => {
   const API_URL = 'http://localhost:3000/api/v1'
@@ -9,23 +10,25 @@ const useCreateUser = () => {
     try {
       const response = await axios.post(`${API_URL}/users`, {
         ...userData,
-      });
+      })
 
       if (response.status === 200) {
         // A conta foi criada com sucesso
+        const { email, id, name } = response?.data
+        Cookies.set('userInfo', JSON.stringify({ email, id, name }), { expires: 1 })
         navigate('/dashboard')
-        return true;
+        return true
       } else {
         // A criação da conta falhou
-        return false;
+        return false
       }
     } catch (error) {
-      console.error('Erro ao criar conta:', error);
-      return false;
+      console.error('Erro ao criar conta:', error)
+      return false
     }
-  };
+  }
 
-  return { createUser };
-};
+  return { createUser }
+}
 
-export default useCreateUser;
+export default useCreateUser

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Card, Form, Button } from 'react-bootstrap'
 import useCreatePost from '../hooks/useCreatePost'
+import Cookies from 'js-cookie'
 
 const NewPostBox = ({ fetchPosts }) => {
   const [postContent, setPostContent] = useState('')
@@ -17,8 +18,9 @@ const NewPostBox = ({ fetchPosts }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const storedUserInfo = JSON.parse(Cookies.get('userInfo'))
     const params = {
-      user_id: 4,
+      user_id: storedUserInfo.id,
       content: postContent,
     }
 

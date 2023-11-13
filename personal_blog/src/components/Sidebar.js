@@ -1,11 +1,13 @@
 import React from 'react'
 import { Nav, Form, FormControl, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 function Sidebar() {
   const navigate = useNavigate()
 
   const handleLogoutClick = () => {
+    Cookies.remove('userInfo')
     navigate('/')
   }
 
