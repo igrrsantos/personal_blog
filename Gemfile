@@ -50,6 +50,7 @@ group :development, :test do
   gem 'pry-meta'
   gem 'rspec-rails'
   gem 'simplecov', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :development do
