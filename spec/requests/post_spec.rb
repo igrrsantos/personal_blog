@@ -29,4 +29,43 @@ RSpec.describe Post, type: :request do
       end
     end
   end
+
+  describe 'POST /api/v1/posts' do
+    subject(:create_post) do
+      post '/api/v1/posts',
+           params: params
+    end
+
+    let!(:params) do
+      {
+        post: {
+          content: 'teste',
+          user_id: user.id
+        }
+      }
+    end
+
+    context 'When call index route from posts' do
+      it 'Return Posts with User' do
+        create_post
+        post = Post.first
+        json = JSON.parse(response.body)
+        json.delete('created_at')
+        json['user'].delete('created_at')
+        json['user'].delete('updated_at')
+        expect(response.status).to eq(201)
+        expect(json).to eq(
+          {
+            'id' => post.id,
+            'content' => post.content,
+            'user' => {
+              'id' => user.id,
+              'email' => user.email,
+              'name' => user.name
+            }
+          }
+        )
+      end
+    end
+  end
 end
