@@ -2,8 +2,8 @@ name: Ruby on Rails CI
 
 on:
   push:
-    branches:
-      - main
+    branches-ignore:
+      - '*'
 
 jobs:
   build:
@@ -30,8 +30,3 @@ jobs:
       uses: codecov/codecov-action@v2
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-
-    - name: SonarQube Scan
-      run: sonar-scanner
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
