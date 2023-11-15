@@ -49,11 +49,12 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-meta'
   gem 'rspec-rails'
-  gem 'simplecov'
-  gem 'sonar-scanner'
+  gem 'simplecov', require: false
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem 'spring'
+  gem 'rails_best_practices', require: false
+  gem 'reek', require: false
 end
