@@ -1,0 +1,37 @@
+name: Ruby on Rails CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v2
+      with:
+        ruby-version: 3.2.2
+
+    - name: Install Dependencies
+      run: |
+        gem install bundler
+        bundle install
+
+    - name: Run Tests
+      run: bundle exec rake spec
+
+    - name: Upload Coverage to Codecov
+      uses: codecov/codecov-action@v2
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: SonarQube Scan
+      run: sonar-scanner
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
