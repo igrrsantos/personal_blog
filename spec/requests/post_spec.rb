@@ -1,0 +1,32 @@
+require 'rails_helper'
+
+RSpec.describe Post, type: :request do
+  let!(:user) { create(:user) }
+
+  describe 'GET /api/v1/posts' do
+    subject(:index_posts) { get '/api/v1/posts' }
+
+    let!(:posts) { create_list(:post, 3, user_id: user.id) }
+
+    context 'When call index route from posts' do
+      it 'Return Posts with User' do
+        index_posts
+        json = JSON.parse(response.body)
+        json.each do |a|
+          a.delete('created_at')
+          a['user'].delete('created_at')
+          a['user'].delete('updated_at')
+        end
+        expect(response.status).to eq(200)
+        expect(json.size).to eq(3)
+        expect(json.last).to eq(
+          {
+            'id' => posts.first.id,
+            'content' => posts.first.content,
+            'user' => { 'id' => user.id, 'name' => user.name, 'email' => user.email }
+          }
+        )
+      end
+    end
+  end
+end
