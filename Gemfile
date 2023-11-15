@@ -48,9 +48,10 @@ group :development, :test do
   gem 'faker'
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-meta'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'simplecov', require: false
   gem 'rubocop-rails', require: false
+  gem 'simplecov', require: false
 end
 
 group :development do
