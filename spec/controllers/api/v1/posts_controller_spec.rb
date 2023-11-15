@@ -1,5 +1,3 @@
-# spec/controllers/api/v1/posts_controller_spec.rb
-
 require 'rails_helper'
 
 module Api
