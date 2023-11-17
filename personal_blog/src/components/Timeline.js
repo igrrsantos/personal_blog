@@ -12,7 +12,7 @@ const Timeline = () => {
       <Row>
         <Col>
           <NewPostBox fetchPosts={fetchPosts}/>
-          {posts.map(post => (
+          {posts?.map(post => (
             <Post
               key={post.id}
               username={post.user.name}
