@@ -34,6 +34,9 @@ jobs:
       run: |
         gem install bundler
         bundle install
+
+    - name: Start PostgreSQL
+      run: docker run -d --name postgres -p 5432:5432 postgres:latest
       
     - name: Set up database
       run: |
