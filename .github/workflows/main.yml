@@ -11,7 +11,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:1.5.4 # Use a imagem específica do PostgreSQL
+        image: postgres:14.9 # Use a imagem específica do PostgreSQL
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
