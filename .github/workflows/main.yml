@@ -1,4 +1,4 @@
-name: Ruby on Rails CI
+name: Ruby on Rails Specs
 
 on:
   push:
@@ -11,11 +11,10 @@ jobs:
 
     services:
       postgres:
-        image: postgres:14.9 # Use a imagem específica do PostgreSQL
+        image: postgres:14.9
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: personal_blog_test
         ports:
           - 5432:5432
 
@@ -26,7 +25,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.2 # Not needed with a .ruby-version file
+        ruby-version: 3.2
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
     - name: Install dependencies
