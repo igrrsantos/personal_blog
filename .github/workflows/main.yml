@@ -59,5 +59,5 @@ jobs:
     - name: fix code coverage paths
       working-directory: ./coverage
       run: |
-        sed -i 's/\/home\/runner\/work\/<your-repo-name>\/<your-repo-name>\//\/github\/workspace\//g' lcov.info
-        sed -i 's/\/home\/runner\/work\/<your-repo-name>\/<your-repo-name>\//\/github\/workspace\//g' sonar-cloud-reporter.xml
+        sed -i 's/\/home\/runner\/work\/personal_blog\/personal_blog\//\/github\/workspace\//g' coverage.json
+        sed -i 's/\/home\/runner\/work\/personal_blog\/personal_blog\//\/github\/workspace\//g' sonar-cloud-reporter.xml
