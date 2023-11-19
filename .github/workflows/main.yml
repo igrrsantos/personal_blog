@@ -41,6 +41,10 @@ jobs:
     - name: Check PostgreSQL status
       run: |
         systemctl status postgresql
+
+    - name: Create PostgreSQL user
+      run: |
+        sudo -u postgres createuser runner -s
       
     - name: Set up database
       run: |
