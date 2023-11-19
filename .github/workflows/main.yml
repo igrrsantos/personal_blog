@@ -15,9 +15,9 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
           POSTGRES_DB: personal_blog_test
+          PGUSER: postgres
+          PGPASSWORD: postgres
 
     steps:
     - name: Checkout code
