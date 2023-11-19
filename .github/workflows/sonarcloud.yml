@@ -58,6 +58,10 @@ jobs:
             # mandatory
             -Dsonar.projectKey=igrrsantos_personal_blog
             -Dsonar.organization=igrrsantos
+            -Dsonar.language=ruby
+            -Dsonar.exclusions=**/*_spec.rb
+            -Dsonar.ruby.coverage.reportPaths=coverage/coverage.json
+            -Dsonar.ruby.rubocop.reportPaths=rubocop_report.json
             # Comma-separated paths to directories containing main source files.
             #-Dsonar.sources= # optional, default is project base directory
             # When you need the analysis to take place in a directory other than the one from which it was launched
