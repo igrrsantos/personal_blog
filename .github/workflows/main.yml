@@ -58,9 +58,11 @@ jobs:
         bundle exec rspec
 
     - name: fix code coverage paths
-      working-directory: ./coverage
+      # working-directory: ./coverage
+      # sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.json
       run: |
-        sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.json
+        ruby -rjson -e 'sqube = JSON.load(File.read("coverage/.resultset.json"))["RSpec"]["coverage"].transform_values {|lines| lines["lines"]}; total = { "RSpec" => { "coverage" => sqube, "timestamp" => Time.now.to_i }}; puts JSON.dump(total)' > coverage/.resultset.solarqube.json
+
 
   sonarcloud:
     name: SonarCloud
