@@ -33,12 +33,12 @@ jobs:
         gem install bundler
         bundle install
       
-    - name: Set up database
-      run: |
-        sleep 5
-        bundle exec rails db:create RAILS_ENV=test
-        bundle exec rails db:migrate RAILS_ENV=test
-        bundle exec rails db:test:prepare RAILS_ENV=test
+    # - name: Set up database
+    #   run: |
+    #     sleep 5
+    #     bundle exec rails db:create RAILS_ENV=test
+    #     bundle exec rails db:migrate RAILS_ENV=test
+    #     bundle exec rails db:test:prepare RAILS_ENV=test
 
     - name: Run tests
       run: |
