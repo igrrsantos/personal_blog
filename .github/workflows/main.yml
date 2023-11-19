@@ -17,12 +17,19 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.2
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        bundler-cache: true 
 
     - name: Install dependencies
       run: |
         gem install bundler
         bundle install
+      
+    - name: Set up database
+      run: |
+        sleep 5
+        bundle exec rake db:create RAILS_ENV=test
+        bundle exec rake db:migrate RAILS_ENV=test
+
 
     - name: Run tests
       run: |
