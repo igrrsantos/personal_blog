@@ -2,9 +2,10 @@
 require 'spec_helper'
 require 'simplecov'
 require 'simplecov-json'
-
+require "simplecov_json_formatter"
 SimpleCov.start do
   formatter SimpleCov::Formatter::JSONFormatter
+  # formatter SimpleCov::Formatter::JSONFormatter
 end
 
 ENV['RAILS_ENV'] ||= 'test'
