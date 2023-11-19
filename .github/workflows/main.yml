@@ -9,12 +9,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    services:
-      postgres:
-        image: postgres:14.9
-        ports:
-          - 5432:5432
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -29,11 +23,6 @@ jobs:
       run: |
         gem install bundler
         bundle install
-      
-    - name: Set up database
-      run: |
-        sleep 5
-        bundle exec rails db:migrate RAILS_ENV=test
 
     - name: Run tests
       run: |
