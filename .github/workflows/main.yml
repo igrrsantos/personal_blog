@@ -34,6 +34,10 @@ jobs:
         gem install bundler
         bundle install
 
+    - name: Start PostgreSQL service
+      run: |
+        sudo service postgresql start
+
     - name: Check PostgreSQL status
       run: |
         systemctl status postgresql
