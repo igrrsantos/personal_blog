@@ -70,6 +70,34 @@ module Api
           end
         end
       end
+
+      describe 'GET /api/v1/posts/:id' do
+        subject(:show_post) { get "/api/v1/posts/#{post.id}" }
+
+        let(:post) { create(:post, user_id: user.id) }
+
+        context 'When call show route from posts' do
+          it 'Return the especific Post with User' do
+            show_post
+            json = JSON.parse(response.body)
+            json.delete('created_at')
+            json['user'].delete('created_at')
+            json['user'].delete('updated_at')
+            expect(response.status).to eq(200)
+            expect(json).to eq(
+              {
+                'id' => post.id,
+                'content' => post.content,
+                'user' => {
+                  'id' => user.id,
+                  'email' => user.email,
+                  'name' => user.name
+                }
+              }
+            )
+          end
+        end
+      end
     end
   end
 end
