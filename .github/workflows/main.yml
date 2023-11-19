@@ -60,8 +60,7 @@ jobs:
       working-directory: ./coverage
       run: |
         sed -i 's/\/home\/runner\/work\/personal_blog\/personal_blog\//\/github\/workspace\//g' coverage.json
-  
-jobs:
+
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
