@@ -28,7 +28,7 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.2
-        bundler-cache: true 
+        bundler-cache: true
 
     - name: Install dependencies
       run: |
@@ -46,7 +46,7 @@ jobs:
     - name: Create PostgreSQL user
       run: |
         sudo -u postgres createuser runner -s
-      
+
     - name: Set up database
       run: |
         sleep 5
@@ -58,6 +58,6 @@ jobs:
         bundle exec rspec
 
     - name: Fix Code Coverage Paths
-      working-directory: ./coverage
+      working-directory: coverage
       run: |
         sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.json
