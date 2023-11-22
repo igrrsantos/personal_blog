@@ -1,0 +1,62 @@
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /home/igor/studyspace/personal_blog/config/environment.rb:5)
+Started POST "/api/v1/users" for ::1 at 2023-11-22 18:28:00 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RegistrationsController#create as HTML
+  Parameters: {"api_v1_user"=>{"email"=>"igorsilva@teste.com", "password"=>"[FILTERED]", "name"=>"Igor Silva"}, "registration"=>{"api_v1_user"=>{"email"=>"igorsilva@teste.com", "password"=>"[FILTERED]", "name"=>"Igor Silva"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:7:in `create'
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "igorsilva@teste.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:7:in `create'
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "igorsilva@teste.com"], ["encrypted_password", "$2a$12$l8Y96m53zuc8Xo.FMRxTcuSuZKbUtq87myjrZOgXkvHa2QNUV7/oC"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-22 21:28:01.171900"], ["updated_at", "2023-11-22 21:28:01.171900"], ["name", "Igor Silva"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:7:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.15ms)
+Completed 200 OK in 240ms (Views: 1.4ms | ActiveRecord: 13.4ms | Allocations: 22978)
+
+
+Started GET "/api/v1/posts" for ::1 at 2023-11-22 18:28:01 -0300
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:9:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/posts_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.98ms)
+Completed 200 OK in 51ms (Views: 25.7ms | ActiveRecord: 2.8ms | Allocations: 24370)
+
+
+Started GET "/api/v1/posts" for ::1 at 2023-11-22 18:28:01 -0300
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:9:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/posts_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 1892)
+
+
+Started POST "/api/v1/posts" for ::1 at 2023-11-22 18:28:23 -0300
+Processing by Api::V1::PostsController#create as HTML
+  Parameters: {"user_id"=>2, "content"=>"socorro", "post"=>{"content"=>"socorro", "user_id"=>2}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:20:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/posts_controller.rb:20:in `create'
+  [1m[36mPost Create (1.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "socorro"], ["created_at", "2023-11-22 21:28:23.198087"], ["updated_at", "2023-11-22 21:28:23.198087"], ["user_id", 2]]
+  ↳ app/controllers/api/v1/posts_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:20:in `create'
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 201 Created in 11ms (Views: 0.8ms | ActiveRecord: 2.3ms | Allocations: 4326)
+
+
+Started GET "/api/v1/posts" for ::1 at 2023-11-22 18:28:23 -0300
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:9:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 1]]
+  ↳ app/controllers/api/v1/posts_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.73ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.6ms | Allocations: 2146)
+
+
