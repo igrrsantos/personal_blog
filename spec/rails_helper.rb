@@ -3,11 +3,8 @@ require 'spec_helper'
 require 'simplecov'
 require 'simplecov-json'
 require "simplecov_json_formatter"
+SimpleCov.root(File.expand_path('..', __dir__))
 SimpleCov.start do
-  add_filter '/test/'
-  add_filter '/config/'
-  add_filter '/vendor/'
-
   # Gerar relatórios em múltiplos formatos
   formatter SimpleCov::Formatter::MultiFormatter.new([
     SimpleCov::Formatter::HTMLFormatter,
