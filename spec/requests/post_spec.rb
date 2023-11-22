@@ -35,7 +35,7 @@ module Api
       describe 'POST /api/v1/posts' do
         subject(:create_post) do
           post '/api/v1/posts',
-              params: params
+               params: params
         end
 
         let!(:params) do
