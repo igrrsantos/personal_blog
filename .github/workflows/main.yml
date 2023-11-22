@@ -53,11 +53,14 @@ jobs:
         bundle exec rake db:create RAILS_ENV=test
         bundle exec rake db:migrate RAILS_ENV=test
 
+    - name: Clear coverage data
+      run: rm -rf coverage
+
     - name: Run tests
       run: |
         bundle exec rspec
 
-    - name: Fix Code Coverage Paths
-      working-directory: coverage
-      run: |
-        sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.json
+    # - name: Fix Code Coverage Paths
+    #   working-directory: coverage
+    #   run: |
+    #     sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.json
