@@ -60,6 +60,10 @@ jobs:
       run: |
         bundle exec rspec
 
+    - name: Adjust SimpleCov Paths
+      run: |
+        ruby adjust_simplecov_paths.rb
+
     # - name: Fix Code Coverage Paths
     #   working-directory: coverage
     #   run: |
@@ -67,6 +71,7 @@ jobs:
 
   sonarcloud:
     name: SonarCloud
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
