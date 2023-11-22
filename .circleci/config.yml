@@ -14,8 +14,32 @@ jobs:
       - run: bundle install
 
       - run:
+          name: Install dependencies
+          command: gem install bundler && bundle install
+
+      - run:
+          name: Start PostgreSQL service
+          command: sudo service postgresql start
+
+      - run:
+          name: Check PostgreSQL status
+          command: systemctl status postgresql
+
+      - run:
+          name: Create PostgreSQL user
+          command: sudo -u postgres createuser runner -s
+
+      - run:
+          name: Set up database
+          command: sleep 5 && bundle exec rake db:create RAILS_ENV=test && bundle exec rake db:migrate RAILS_ENV=test
+
+      - run:
+          name: Clear coverage data
+          command: rm -rf coverage
+
+      - run:
           name: Run tests
-          command: bundle exec rspec # ou o comando que você usa para rodar seus testes
+          command: bundle exec rspec
 
       - store_artifacts:
           path: coverage
