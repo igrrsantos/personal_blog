@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Image } from 'react-bootstrap'
 import { format, utcToZonedTime } from 'date-fns-tz'
 import nopicture from './nopicture.png'
+import PropTypes from 'prop-types'
 
 const Post = ({ username, content, timestamp, userImage }) => {
   const ISODateString = timestamp
@@ -28,6 +29,13 @@ const Post = ({ username, content, timestamp, userImage }) => {
       </Card.Body>
     </Card>
   )
+}
+
+Post.propTypes = {
+  username: PropTypes.func.isRequired,
+  content: PropTypes.func.isRequired,
+  timestamp: PropTypes.func.isRequired,
+  userImage: PropTypes.func
 }
 
 export default Post

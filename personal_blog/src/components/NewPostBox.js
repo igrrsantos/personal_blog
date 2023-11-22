@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Card, Form, Button } from 'react-bootstrap'
 import useCreatePost from '../hooks/useCreatePost'
 import Cookies from 'js-cookie'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const NewPostBox = ({ fetchPosts }) => {
   const [postContent, setPostContent] = useState('')

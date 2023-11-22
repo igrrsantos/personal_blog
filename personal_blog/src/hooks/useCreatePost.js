@@ -7,12 +7,8 @@ const useCreatePost = () => {
       const response = await axios.post(`${API_URL}/posts`, {
         ...params,
       })
+      return response.status === 201
 
-      if (response.status === 201) {
-        return true
-      } else {
-        return false
-      }
     } catch (error) {
       console.error('Erro ao criar novo post:', error)
       return false
