@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Card, Form, Button } from 'react-bootstrap'
 import useCreatePost from '../hooks/useCreatePost'
 import Cookies from 'js-cookie'
+import PropTypes from 'prop-types';
 
 const NewPostBox = ({ fetchPosts }) => {
   const [postContent, setPostContent] = useState('')
@@ -59,6 +60,10 @@ const NewPostBox = ({ fetchPosts }) => {
       </Card.Body>
     </Card>
   )
+}
+
+NewPostBox.propTypes = {
+  fetchPosts: PropTypes.func.isRequired,
 }
 
 export default NewPostBox
