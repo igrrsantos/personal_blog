@@ -14,7 +14,7 @@ const useCreateUser = () => {
 
       if (response.status === 200) {
         // A conta foi criada com sucesso
-        const { email, id, name } = response?.data
+        const { email, id, name } = response?.data ?? {}
         Cookies.set('userInfo', JSON.stringify({ email, id, name }), { expires: 1 })
         navigate('/dashboard')
         return true
