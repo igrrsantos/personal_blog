@@ -60,12 +60,12 @@ jobs:
       run: |
         bundle exec rspec
 
-    - name: Adjust SimpleCov Paths
-      run: |
-        ruby adjust_simplecov_paths.rb
+    # - name: Adjust SimpleCov Paths
+    #   run: |
+    #     ruby adjust_simplecov_paths.rb
 
     - name: Fix Code Coverage Paths
-      working-directory: coverage
+      working-directory: ./coverage
       run: |
         sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.json
 
