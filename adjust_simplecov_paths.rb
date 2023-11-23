@@ -1,5 +1,6 @@
 # adjust_simplecov_paths.rb
 require 'json'
+require 'pathname'
 
 coverage_path = 'coverage/.resultset.json'
 coverage_data = JSON.parse(File.read(coverage_path))
