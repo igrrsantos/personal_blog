@@ -6,10 +6,11 @@ require "simplecov_json_formatter"
 SimpleCov.root(File.expand_path('..', __dir__))
 SimpleCov.start do
   # Gerar relatórios em múltiplos formatos
-  formatter SimpleCov::Formatter::MultiFormatter.new([
-    SimpleCov::Formatter::HTMLFormatter,
-    SimpleCov::Formatter::JSONFormatter
-  ])
+  formatter SimpleCov::Formatter::JSONFormatter
+  # formatter SimpleCov::Formatter::MultiFormatter.new([
+  #   SimpleCov::Formatter::HTMLFormatter,
+  #   SimpleCov::Formatter::JSONFormatter
+  # ])
 end
 
 ENV['RAILS_ENV'] ||= 'test'
