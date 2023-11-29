@@ -30,16 +30,11 @@ jobs:
             sudo service postgresql start
 
       - run:
-          name: Create PostgreSQL user
-          command:
-            -u postgres createuser runner -s
-
-      - run:
           name: Database Setup
           command: |
             sleep 15
-            bundle exec rake db:create RAILS_ENV=test
-            bundle exec rake db:migrate RAILS_ENV=test
+            bundle exec rails db:create RAILS_ENV=test
+            bundle exec rails db:migrate RAILS_ENV=test
 
       - run:
           name: Run RSpec Tests
