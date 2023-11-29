@@ -22,7 +22,10 @@ jobs:
 
       - run:
           name: Test PostgreSQL Connection
-          command: nc -zv postgres 5432
+          command: |
+            apt-get update
+            apt-get install -y postgresql-client
+            psql -h postgres -U postgres -d personal_blog_test -c 'SELECT 1'
 
       - run:
           name: Database Setup
