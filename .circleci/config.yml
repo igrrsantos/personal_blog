@@ -8,7 +8,7 @@ jobs:
       - image: postgres:14.9
         environment:
           POSTGRES_USER: postgres
-          POSTGRES_DB: personal_blog
+          POSTGRES_DB: personal_blog_test
           POSTGRES_PASSWORD: postgres
 
     steps:
