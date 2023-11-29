@@ -11,7 +11,7 @@ jobs:
       - image: cimg/ruby:3.2.2
       - image: postgres:14.9
         environment:
-          POSTGRES_USER: runner
+          POSTGRES_USER: postgres
           POSTGRES_DB: personal_blog_test
           POSTGRES_PASSWORD: postgres
     steps:
@@ -24,7 +24,7 @@ jobs:
 
       - run:
           name: Set up database
-          command: sleep 5 && bundle exec rake db:create RAILS_ENV=test && bundle exec rake db:migrate RAILS_ENV=test
+          command: sleep 40 && bundle exec rake db:create RAILS_ENV=test && bundle exec rake db:migrate RAILS_ENV=test
 
       - run:
           name: Clear coverage data
