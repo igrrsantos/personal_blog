@@ -30,6 +30,11 @@ jobs:
             sudo service postgresql start
 
       - run:
+          name: Create PostgreSQL user
+          command:
+            sudo -u postgres createuser runner -s
+
+      - run:
           name: Database Setup
           command: |
             sleep 15
