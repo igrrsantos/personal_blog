@@ -157,3 +157,480 @@ Processing by Api::V1::PostsController#show as HTML
 [active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.12ms)
 Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 743)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "marlena@langworth.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "marlena@langworth.example"], ["encrypted_password", "$2a$04$XODdcUDHI0X3NgEWubaxxOPB4UdHHXYw5.uwDNEoONKZSoPVqFsg2"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:09:53.855057"], ["updated_at", "2023-11-29 20:09:53.855057"], ["name", "Mauricio Franecki"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (1.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 11ms (Views: 6.4ms | ActiveRecord: 2.7ms | Allocations: 3926)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sallie.donnelly@price.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "sallie.donnelly@price.test"], ["encrypted_password", "$2a$04$I//zymLNM9wc3yk0r1aI6OTPJGkdJhBSbdtXOgZz0sG4TfeiqCHCq"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:09:53.902928"], ["updated_at", "2023-11-29 20:09:53.902928"], ["name", "Trent Will Jr."]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 163], ["LIMIT", 1]]
+  [1m[36mPost Create (2.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Things we lose have a way of coming back to us in the end, if not always in the way we expect."], ["created_at", "2023-11-29 20:09:53.919742"], ["updated_at", "2023-11-29 20:09:53.919742"], ["user_id", 163]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 163], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Happiness can be found even in the darkest of times if only one remembers to turn on the light."], ["created_at", "2023-11-29 20:09:53.924699"], ["updated_at", "2023-11-29 20:09:53.924699"], ["user_id", 163]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 163], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "I solemnly swear that I am up to no good."], ["created_at", "2023-11-29 20:09:53.927295"], ["updated_at", "2023-11-29 20:09:53.927295"], ["user_id", 163]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.79ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 3788)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nickolas.witting@mann-rath.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "nickolas.witting@mann-rath.test"], ["encrypted_password", "$2a$04$j5G/aHiHF5gjXCVmoO1PMe3gR3KBW4slYNX0HYAwSlGjPGniQzLly"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:09:53.947724"], ["updated_at", "2023-11-29 20:09:53.947724"], ["name", "Dr. Mamie Wyman"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 164], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "It’s wingardium leviOsa, not leviosAH."], ["created_at", "2023-11-29 20:09:53.950574"], ["updated_at", "2023-11-29 20:09:53.950574"], ["user_id", 164]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 164], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Words are in my not-so-humble opinion, the most inexhaustible form of magic we have, capable both of inflicting injury and remedying it."], ["created_at", "2023-11-29 20:09:53.953124"], ["updated_at", "2023-11-29 20:09:53.953124"], ["user_id", 164]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 164], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "We could all have been killed - or worse, expelled."], ["created_at", "2023-11-29 20:09:53.955594"], ["updated_at", "2023-11-29 20:09:53.955594"], ["user_id", 164]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.31ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 1050)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "hisako.dicki@lakin-bernhard.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "hisako.dicki@lakin-bernhard.example"], ["encrypted_password", "$2a$04$bIvEu2sv/9u03V.ZXkWGPuNcJsSAvh0wQgGsaJMQl/SmUVdKC3f.y"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:09:53.965315"], ["updated_at", "2023-11-29 20:09:53.965315"], ["name", "Ms. Zachary Nitzsche"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 165], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "There are some things you can't share without ending up liking each other, and knocking out a twelve-foot mountain troll is one of them."], ["created_at", "2023-11-29 20:09:53.968193"], ["updated_at", "2023-11-29 20:09:53.968193"], ["user_id", 165]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#show as HTML
+  Parameters: {"id"=>"333"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 333], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 165], ["LIMIT", 1]]
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.43ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 965)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "laurence.huel@kerluke.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "laurence.huel@kerluke.example"], ["encrypted_password", "$2a$04$yJim9ieYkjN5IdXhvAJUu.9rTd8tblYW63PVuCx.94hPiKLmP0xfu"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:09:53.979039"], ["updated_at", "2023-11-29 20:09:53.979039"], ["name", "Jamey O'Hara"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 166], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?"], ["created_at", "2023-11-29 20:09:53.981789"], ["updated_at", "2023-11-29 20:09:53.981789"], ["user_id", 166]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#show as HTML
+  Parameters: {"id"=>"334"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 334], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 166], ["LIMIT", 1]]
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.2ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 778)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ivy@ward.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "ivy@ward.example"], ["encrypted_password", "$2a$04$GzCbHeWcfhv0I0QEKBLuN..Qrs49xJlNtn8Xyh8f5TnBvrKSbd4pa"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:09:53.992251"], ["updated_at", "2023-11-29 20:09:53.992251"], ["name", "Miss Tim Corwin"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 167], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Just because you have the emotional range of a teaspoon doesn’t mean we all have."], ["created_at", "2023-11-29 20:09:53.995722"], ["updated_at", "2023-11-29 20:09:53.995722"], ["user_id", 167]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#show as HTML
+  Parameters: {"id"=>"335"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 335], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 167], ["LIMIT", 1]]
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.35ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 778)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ivana@hane.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "ivana@hane.example"], ["encrypted_password", "$2a$04$Vqa8btJE/CCK6BtGe4HtTuAQGzxW4UL8D2ak/egiFR8UaXUP9/eRy"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:09:54.006681"], ["updated_at", "2023-11-29 20:09:54.006681"], ["name", "Johnathan Moen"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 168], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "You're a wizard, Harry."], ["created_at", "2023-11-29 20:09:54.009527"], ["updated_at", "2023-11-29 20:09:54.009527"], ["user_id", 168]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 168], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "To the well-organized mind, death is but the next great adventure."], ["created_at", "2023-11-29 20:09:54.011887"], ["updated_at", "2023-11-29 20:09:54.011887"], ["user_id", 168]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 168], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Dark and difficult times lie ahead. Soon we must all face the choice between what is right and what is easy."], ["created_at", "2023-11-29 20:09:54.014071"], ["updated_at", "2023-11-29 20:09:54.014071"], ["user_id", 168]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/posts" for 127.0.0.1 at 2023-11-29 17:09:54 -0300
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 168]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.26ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.5ms | Allocations: 2951)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "freeman@green.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "freeman@green.test"], ["encrypted_password", "$2a$04$PRdpuBgRzHeDQYXltmZ2DOVDWapuhZWFrhHkRzrbgJ5dBpSEhl8lS"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:09:54.035292"], ["updated_at", "2023-11-29 20:09:54.035292"], ["name", "William McDermott"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/posts" for 127.0.0.1 at 2023-11-29 17:09:54 -0300
+Processing by Api::V1::PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"teste", "user_id"=>"169"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 169], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "teste"], ["created_at", "2023-11-29 20:09:54.044193"], ["updated_at", "2023-11-29 20:09:54.044193"], ["user_id", 169]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 201 Created in 4ms (Views: 0.9ms | ActiveRecord: 0.6ms | Allocations: 1173)
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jere@schumm.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "jere@schumm.example"], ["encrypted_password", "$2a$04$H0HJq7R4CMz9Rm3G5YR2RuOYevNYFdN9Ln/Sr7MgpWYVFz94/H4AO"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:09:54.053285"], ["updated_at", "2023-11-29 20:09:54.053285"], ["name", "Gerald Weimann"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 170], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "If you want to know what a man’s like, take a good look at how he treats his inferiors, not his equals."], ["created_at", "2023-11-29 20:09:54.056134"], ["updated_at", "2023-11-29 20:09:54.056134"], ["user_id", 170]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/posts/340" for 127.0.0.1 at 2023-11-29 17:09:54 -0300
+Processing by Api::V1::PostsController#show as HTML
+  Parameters: {"id"=>"340"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 340], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 170], ["LIMIT", 1]]
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.28ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 742)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jc_ferry@swaniawski.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "jc_ferry@swaniawski.test"], ["encrypted_password", "$2a$04$nyfXpewqyVlcjR6lIWrOwe3F8DFzki9HcmHYALH3QbOZEjC7AXT0K"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:12:40.112993"], ["updated_at", "2023-11-29 20:12:40.112993"], ["name", "Pres. Louann Toy"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 1.1ms | Allocations: 3926)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gaston@cartwright.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "gaston@cartwright.test"], ["encrypted_password", "$2a$04$ZBvhjJDbzTleYN.PBBIxU.CIBXfzpKfCi34ts.EFdkGvasuVthCQq"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:12:40.147625"], ["updated_at", "2023-11-29 20:12:40.147625"], ["name", "France Collier"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 172], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?"], ["created_at", "2023-11-29 20:12:40.160607"], ["updated_at", "2023-11-29 20:12:40.160607"], ["user_id", 172]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 172], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Harry, suffering like this proves you are still a man! This pain is part of being human...the fact that you can feel pain like this is your greatest strength."], ["created_at", "2023-11-29 20:12:40.163509"], ["updated_at", "2023-11-29 20:12:40.163509"], ["user_id", 172]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 172], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Words are in my not-so-humble opinion, the most inexhaustible form of magic we have, capable both of inflicting injury and remedying it."], ["created_at", "2023-11-29 20:12:40.166188"], ["updated_at", "2023-11-29 20:12:40.166188"], ["user_id", 172]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.74ms)
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 3788)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "abraham@kassulke.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "abraham@kassulke.example"], ["encrypted_password", "$2a$04$msdb9kWzRTNLwCMXnGg78.LxHAyTlZi3mKsngKdQmSSFMrHdGCK/e"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:12:40.182515"], ["updated_at", "2023-11-29 20:12:40.182515"], ["name", "Leonard Koch"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends."], ["created_at", "2023-11-29 20:12:40.185127"], ["updated_at", "2023-11-29 20:12:40.185127"], ["user_id", 173]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "It’s wingardium leviOsa, not leviosAH."], ["created_at", "2023-11-29 20:12:40.187196"], ["updated_at", "2023-11-29 20:12:40.187196"], ["user_id", 173]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 173], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Never trust anything that can think for itself if you can't see where it keeps its brain."], ["created_at", "2023-11-29 20:12:40.189247"], ["updated_at", "2023-11-29 20:12:40.189247"], ["user_id", 173]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.18ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 1050)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroll.lindgren@grimes.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "caroll.lindgren@grimes.example"], ["encrypted_password", "$2a$04$ACFuPp8RlFGSCDlPJXezmuFEkJz1m324BSPQVyLMkqitxdEGU8Sji"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:12:40.198180"], ["updated_at", "2023-11-29 20:12:40.198180"], ["name", "Alda Collins"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 174], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Harry, suffering like this proves you are still a man! This pain is part of being human...the fact that you can feel pain like this is your greatest strength."], ["created_at", "2023-11-29 20:12:40.202464"], ["updated_at", "2023-11-29 20:12:40.202464"], ["user_id", 174]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#show as HTML
+  Parameters: {"id"=>"347"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 347], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 174], ["LIMIT", 1]]
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.99ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 965)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "reggie.marvin@white.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "reggie.marvin@white.test"], ["encrypted_password", "$2a$04$RaMor5TRC.m9uKGy9JStBuMYFfjj4rRJNMW.L1yR0/FtAGiMUVrwq"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:12:40.216754"], ["updated_at", "2023-11-29 20:12:40.216754"], ["name", "Estella Harvey"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Harry, suffering like this proves you are still a man! This pain is part of being human...the fact that you can feel pain like this is your greatest strength."], ["created_at", "2023-11-29 20:12:40.221745"], ["updated_at", "2023-11-29 20:12:40.221745"], ["user_id", 175]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#show as HTML
+  Parameters: {"id"=>"348"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 348], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 175], ["LIMIT", 1]]
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (2.02ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 778)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ty@hoppe.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "ty@hoppe.example"], ["encrypted_password", "$2a$04$um4oLiSStXWwctzgi4P2i.a3TnEgr3Lf2Zh.DVnx9Xd3oDnuGJ5/G"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:12:40.235300"], ["updated_at", "2023-11-29 20:12:40.235300"], ["name", "Henrietta Stiedemann"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 176], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "We could all have been killed - or worse, expelled."], ["created_at", "2023-11-29 20:12:40.238862"], ["updated_at", "2023-11-29 20:12:40.238862"], ["user_id", 176]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#show as HTML
+  Parameters: {"id"=>"349"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 349], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 176], ["LIMIT", 1]]
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.17ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 779)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "modesta@kerluke.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "modesta@kerluke.example"], ["encrypted_password", "$2a$04$xGymP7gjXgzd3rO7fhU1JuAr3E3MVxEeS6wrhXWxurQ5sXhGVJRgG"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:12:40.249521"], ["updated_at", "2023-11-29 20:12:40.249521"], ["name", "Melony Stiedemann"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 177], ["LIMIT", 1]]
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Dark and difficult times lie ahead. Soon we must all face the choice between what is right and what is easy."], ["created_at", "2023-11-29 20:12:40.252874"], ["updated_at", "2023-11-29 20:12:40.252874"], ["user_id", 177]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 177], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "It is the unknown we fear when we look upon death and darkness, nothing more."], ["created_at", "2023-11-29 20:12:40.257298"], ["updated_at", "2023-11-29 20:12:40.257298"], ["user_id", 177]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 177], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "After all this time? Always."], ["created_at", "2023-11-29 20:12:40.261729"], ["updated_at", "2023-11-29 20:12:40.261729"], ["user_id", 177]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/posts" for 127.0.0.1 at 2023-11-29 17:12:40 -0300
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 177]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.38ms)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.7ms | Allocations: 2952)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "forest@baumbach.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "forest@baumbach.test"], ["encrypted_password", "$2a$04$mhX9ihfxghS83qYKhsTl7OhxP1lwzQOkg0JvYaOAuODmNHp4.kHPa"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:12:40.290059"], ["updated_at", "2023-11-29 20:12:40.290059"], ["name", "Lan Schaefer"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/posts" for 127.0.0.1 at 2023-11-29 17:12:40 -0300
+Processing by Api::V1::PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"teste", "user_id"=>"178"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 178], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "teste"], ["created_at", "2023-11-29 20:12:40.298970"], ["updated_at", "2023-11-29 20:12:40.298970"], ["user_id", 178]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 201 Created in 5ms (Views: 1.0ms | ActiveRecord: 0.7ms | Allocations: 1172)
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "corrina_weber@towne-hackett.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "corrina_weber@towne-hackett.example"], ["encrypted_password", "$2a$04$JWso16YA93WATAlZWFiIR.hvY3Mto4NDemb98pymsXULqC0taQlnq"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:12:40.308073"], ["updated_at", "2023-11-29 20:12:40.308073"], ["name", "John Lemke"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 179], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "You sort of start thinking anything’s possible if you’ve got enough nerve."], ["created_at", "2023-11-29 20:12:40.310937"], ["updated_at", "2023-11-29 20:12:40.310937"], ["user_id", 179]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/posts/354" for 127.0.0.1 at 2023-11-29 17:12:40 -0300
+Processing by Api::V1::PostsController#show as HTML
+  Parameters: {"id"=>"354"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 354], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 179], ["LIMIT", 1]]
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.5ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 742)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "giovanni.bergstrom@rodriguez.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "giovanni.bergstrom@rodriguez.test"], ["encrypted_password", "$2a$04$6S8ybirBenZz7JcR2h3C2uU.yyQPDbmpDULFzjBtvsROrF6jlcPFa"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:19:42.946572"], ["updated_at", "2023-11-29 20:19:42.946572"], ["name", "Junior Johnson Jr."]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 1.5ms | Allocations: 3926)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "hong@mohr.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "hong@mohr.test"], ["encrypted_password", "$2a$04$QhzYWHC2T16VfewGb.MjL.lGZXA/vjoER0x.LkxKxFsahf0Sbckt6"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:19:42.989312"], ["updated_at", "2023-11-29 20:19:42.989312"], ["name", "Melda Bayer"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 181], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "There are some things you can't share without ending up liking each other, and knocking out a twelve-foot mountain troll is one of them."], ["created_at", "2023-11-29 20:19:43.005887"], ["updated_at", "2023-11-29 20:19:43.005887"], ["user_id", 181]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 181], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Just because you have the emotional range of a teaspoon doesn’t mean we all have."], ["created_at", "2023-11-29 20:19:43.010118"], ["updated_at", "2023-11-29 20:19:43.010118"], ["user_id", 181]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 181], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "After all this time? Always."], ["created_at", "2023-11-29 20:19:43.012717"], ["updated_at", "2023-11-29 20:19:43.012717"], ["user_id", 181]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.14ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 3785)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luciano.bosco@emard.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "luciano.bosco@emard.test"], ["encrypted_password", "$2a$04$cVxkpWgFUE2mKSu90h8p4OiCs6FgfxP6zyvAc8RY62sJKlPKTFGL6"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:19:43.030648"], ["updated_at", "2023-11-29 20:19:43.030648"], ["name", "Tera Schowalter V"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "It is the unknown we fear when we look upon death and darkness, nothing more."], ["created_at", "2023-11-29 20:19:43.033738"], ["updated_at", "2023-11-29 20:19:43.033738"], ["user_id", 182]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "It’s wingardium leviOsa, not leviosAH."], ["created_at", "2023-11-29 20:19:43.036099"], ["updated_at", "2023-11-29 20:19:43.036099"], ["user_id", 182]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 1]]
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Happiness can be found even in the darkest of times if only one remembers to turn on the light."], ["created_at", "2023-11-29 20:19:43.038704"], ["updated_at", "2023-11-29 20:19:43.038704"], ["user_id", 182]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.22ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 1053)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bert_keebler@abshire.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "bert_keebler@abshire.example"], ["encrypted_password", "$2a$04$ZZ/O9SSUk.RTutIu4GDJS.vNe85H2ACSQB6BzszRK4oim0mQJQXsO"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:19:43.048227"], ["updated_at", "2023-11-29 20:19:43.048227"], ["name", "Spencer Emmerich"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "We’ve all got both light and dark inside us. What matters is the part we choose to act on. That’s who we really are."], ["created_at", "2023-11-29 20:19:43.050979"], ["updated_at", "2023-11-29 20:19:43.050979"], ["user_id", 183]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#show as HTML
+  Parameters: {"id"=>"361"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 361], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 1]]
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.45ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 965)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "merissa_waelchi@heaney.example"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "merissa_waelchi@heaney.example"], ["encrypted_password", "$2a$04$HVeNjSmAvpyfH55w31Xyt.b.FqIB9QhAldsXcD3wpTkIINo1awBBS"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:19:43.061489"], ["updated_at", "2023-11-29 20:19:43.061489"], ["name", "Amb. Carmelia Yundt"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 184], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?"], ["created_at", "2023-11-29 20:19:43.064600"], ["updated_at", "2023-11-29 20:19:43.064600"], ["user_id", 184]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#show as HTML
+  Parameters: {"id"=>"362"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 362], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 184], ["LIMIT", 1]]
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.36ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 779)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sherill_johns@macgyver.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "sherill_johns@macgyver.test"], ["encrypted_password", "$2a$04$OYCFekAil7MK/QysqKDuU.6GPNlaAwsVKKZivZc3B0DBB4tDe9B5q"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:19:43.074219"], ["updated_at", "2023-11-29 20:19:43.074219"], ["name", "Rev. Kermit Walker"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 185], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "There are some things you can't share without ending up liking each other, and knocking out a twelve-foot mountain troll is one of them."], ["created_at", "2023-11-29 20:19:43.076881"], ["updated_at", "2023-11-29 20:19:43.076881"], ["user_id", 185]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::PostsController#show as HTML
+  Parameters: {"id"=>"363"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 363], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 185], ["LIMIT", 1]]
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.3ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 779)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "eldridge.pollich@berge.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "eldridge.pollich@berge.test"], ["encrypted_password", "$2a$04$oG8q.heXGIsoDEwNrr6V/.bjs2wxy/5eNYy.LulbG1dRRtF1FdZNG"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:19:43.086646"], ["updated_at", "2023-11-29 20:19:43.086646"], ["name", "Randell Padberg"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 186], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "To the well-organized mind, death is but the next great adventure."], ["created_at", "2023-11-29 20:19:43.089300"], ["updated_at", "2023-11-29 20:19:43.089300"], ["user_id", 186]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 186], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Things we lose have a way of coming back to us in the end, if not always in the way we expect."], ["created_at", "2023-11-29 20:19:43.091457"], ["updated_at", "2023-11-29 20:19:43.091457"], ["user_id", 186]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 186], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "If you want to know what a man’s like, take a good look at how he treats his inferiors, not his equals."], ["created_at", "2023-11-29 20:19:43.093767"], ["updated_at", "2023-11-29 20:19:43.093767"], ["user_id", 186]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/posts" for 127.0.0.1 at 2023-11-29 17:19:43 -0300
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 186]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.51ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.4ms | Allocations: 2951)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "quentin.wyman@brakus-hammes.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "quentin.wyman@brakus-hammes.test"], ["encrypted_password", "$2a$04$l4AUTy5R.v4T7s0RxEyxU.NitZjtxSvyvXaxp1L5.wzXTvqtGsJEW"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:19:43.114015"], ["updated_at", "2023-11-29 20:19:43.114015"], ["name", "Mr. Jeramy Kuhlman"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/posts" for 127.0.0.1 at 2023-11-29 17:19:43 -0300
+Processing by Api::V1::PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"teste", "user_id"=>"187"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 187], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "teste"], ["created_at", "2023-11-29 20:19:43.121663"], ["updated_at", "2023-11-29 20:19:43.121663"], ["user_id", 187]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 201 Created in 4ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 1173)
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jackie@kautzer.test"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "jackie@kautzer.test"], ["encrypted_password", "$2a$04$BOtuxeel9w4A2mFTFtcjzO1iy.HMArYS/4/vAtW9pCCxNdrlO39q2"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-11-29 20:19:43.129627"], ["updated_at", "2023-11-29 20:19:43.129627"], ["name", "Edgardo Wuckert"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 188], ["LIMIT", 1]]
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?"], ["created_at", "2023-11-29 20:19:43.132189"], ["updated_at", "2023-11-29 20:19:43.132189"], ["user_id", 188]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/posts/368" for 127.0.0.1 at 2023-11-29 17:19:43 -0300
+Processing by Api::V1::PostsController#show as HTML
+  Parameters: {"id"=>"368"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 368], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 188], ["LIMIT", 1]]
+[active_model_serializers] Rendered PostSerializer with ActiveModelSerializers::Adapter::Attributes (1.19ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 742)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
