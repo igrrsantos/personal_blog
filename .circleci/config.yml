@@ -8,7 +8,7 @@ jobs:
       - image: postgres:14.9
         environment:
           POSTGRES_USER: postgres
-          POSTGRES_DB: personal_blog_test
+          POSTGRES_DB: personal_blog
           POSTGRES_PASSWORD: postgres
 
     steps:
@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Database Setup
           command: |
-            sleep 180
+            sleep 50
             bundle exec rake db:create RAILS_ENV=test
             bundle exec rake db:migrate RAILS_ENV=test
 
