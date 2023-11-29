@@ -27,7 +27,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install -y postgresql-client
-            psql -h postgres -U postgres -d personal_blog_test -c 'SELECT 1'
+            sudo service postgresql start
 
       - run:
           name: Database Setup
