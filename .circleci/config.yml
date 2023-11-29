@@ -21,19 +21,11 @@ jobs:
             bundle install --jobs=4 --retry=3
 
       - run:
-          name: Wait for PostgreSQL
-          command: |
-            for i in `seq 1 10`; do
-              nc -z localhost 5432 && echo "PostgreSQL is up and running" && break
-              echo "Waiting for PostgreSQL..."
-              sleep 5
-            done
-
-      - run:
           name: Database Setup
           command: |
-            bundle exec rake db:create
-            bundle exec rake db:schema:load
+            sleep 180
+            bundle exec rake db:create RAILS_ENV=test
+            bundle exec rake db:migrate RAILS_ENV=test
 
       - run:
           name: Clear coverage data
