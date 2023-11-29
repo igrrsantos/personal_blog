@@ -22,7 +22,7 @@ jobs:
 
       - run:
           name: Test PostgreSQL Connection
-          command: ping -c 4 postgres
+          command: nc -zv postgres 5432
 
       - run:
           name: Database Setup
