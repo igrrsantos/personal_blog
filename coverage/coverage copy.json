@@ -1,7 +1,5 @@
 {
-  "meta": {
-    "simplecov_version": "0.22.0"
-  },
+  "meta": { "simplecov_version": "0.22.0" },
   "coverage": {
     "/github/workspace/app/controllers/api/v1/posts_controller.rb": {
       "lines": [
@@ -21,39 +19,40 @@
         null,
         null,
         1,
-        5,
-        null,
-        5,
-        3,
-        null,
-        2,
-        null,
-        null,
         null,
         1,
-        2,
-        2,
+        null,
+        1,
+        1,
         null,
         0,
         null,
         null,
         null,
         1,
-        2,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
         null,
         null,
         1,
         null,
         1,
-        9,
+        5,
         null,
         null,
         1,
-        9,
+        4,
         null,
         null,
         1,
-        7,
+        1,
         null,
         null,
         null,
@@ -61,63 +60,20 @@
       ]
     },
     "/github/workspace/app/controllers/application_controller.rb": {
-      "lines": [
-        1,
-        null
-      ]
+      "lines": [1, null]
     },
     "/github/workspace/app/models/application_record.rb": {
-      "lines": [
-        1,
-        1,
-        null
-      ]
+      "lines": [1, 1, null]
     },
-    "/github/workspace/app/models/post.rb": {
-      "lines": [
-        1,
-        1,
-        1,
-        1,
-        null
-      ]
-    },
+    "/github/workspace/app/models/post.rb": { "lines": [1, 1, 1, 1, null] },
     "/github/workspace/app/models/user.rb": {
-      "lines": [
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null
-      ]
+      "lines": [1, null, null, 1, 1, 1, null, null]
     },
     "/github/workspace/app/repositories/post_repository.rb": {
-      "lines": [
-        1,
-        1,
-        2,
-        null,
-        null,
-        1,
-        5,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null
-      ]
+      "lines": [1, 1, 2, null, null, 1, 1, null, null, 1, 0, null, null]
     },
     "/github/workspace/app/serializers/post_serializer.rb": {
-      "lines": [
-        1,
-        1,
-        1,
-        null
-      ]
+      "lines": [1, 1, 1, null]
     },
     "/github/workspace/app/services/post_service.rb": {
       "lines": [
@@ -127,7 +83,7 @@
         null,
         null,
         1,
-        5,
+        1,
         null,
         null,
         1,
@@ -137,7 +93,7 @@
         1,
         null,
         1,
-        7,
+        3,
         null,
         null
       ]
@@ -185,23 +141,8 @@
         null
       ]
     },
-    "/github/workspace/config/boot.rb": {
-      "lines": [
-        1,
-        null,
-        1,
-        1
-      ]
-    },
-    "/github/workspace/config/environment.rb": {
-      "lines": [
-        null,
-        1,
-        null,
-        null,
-        1
-      ]
-    },
+    "/github/workspace/config/boot.rb": { "lines": [1, null, 1, 1] },
+    "/github/workspace/config/environment.rb": { "lines": [null, 1, null, null, 1] },
     "/github/workspace/config/environments/test.rb": {
       "lines": [
         1,
@@ -609,16 +550,7 @@
       ]
     },
     "/github/workspace/config/initializers/filter_parameter_logging.rb": {
-      "lines": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null
-      ]
+      "lines": [null, null, null, null, null, 1, null, null]
     },
     "/github/workspace/config/initializers/inflections.rb": {
       "lines": [
@@ -660,26 +592,8 @@
         null
       ]
     },
-    "/github/workspace/spec/factories/posts.rb": {
-      "lines": [
-        1,
-        1,
-        20,
-        null,
-        null
-      ]
-    },
-    "/github/workspace/spec/factories/users.rb": {
-      "lines": [
-        1,
-        1,
-        19,
-        19,
-        19,
-        null,
-        null
-      ]
-    },
+    "/github/workspace/spec/factories/posts.rb": { "lines": [1, 1, 14, null, null] },
+    "/github/workspace/spec/factories/users.rb": { "lines": [1, 1, 10, 10, 10, null, null] },
     "/github/workspace/spec/requests/api/v1/post_spec.rb": {
       "lines": [
         1,
@@ -789,20 +703,8 @@
     }
   },
   "groups": {
-    "Models": {
-      "lines": {
-        "covered_percent": 100.0
-      }
-    },
-    "Controllers": {
-      "lines": {
-        "covered_percent": 96.42857142857143
-      }
-    },
-    "Ungrouped": {
-      "lines": {
-        "covered_percent": 98.49624060150376
-      }
-    }
+    "Models": { "lines": { "covered_percent": 100.0 } },
+    "Controllers": { "lines": { "covered_percent": 82.14285714285714 } },
+    "Ungrouped": { "lines": { "covered_percent": 98.49624060150376 } }
   }
 }

@@ -14,7 +14,6 @@ module Api
       end
 
       def create
-        # adding a comment to test ci
         @post = post_service.create(post_params)
 
         if @post.save
@@ -26,7 +25,7 @@ module Api
 
       def update
         if @post.update(post_params)
-          render json: @post
+          render json: @post, status: :ok
         else
           render json: @post.errors, status: :unprocessable_entity
         end
