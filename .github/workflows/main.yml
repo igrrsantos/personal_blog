@@ -60,9 +60,9 @@ jobs:
       run: |
         bundle exec rspec
 
-    # - name: Adjust SimpleCov Paths
-    #   run: |
-    #     ruby adjust_simplecov_paths.rb
+    - name: Adjust SimpleCov Paths
+      run: |
+        ruby adjust_simplecov_paths.rb
 
     - name: Fix Code Coverage Paths
       working-directory: ./coverage
