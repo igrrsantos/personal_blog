@@ -3,13 +3,16 @@ require 'spec_helper'
 require 'simplecov'
 require 'simplecov-json'
 require "simplecov_json_formatter"
+require 'simplecov-cobertura'
+
 SimpleCov.root(File.expand_path('..', __dir__))
 SimpleCov.start do
   # Gerar relatórios em múltiplos formatos
   # formatter SimpleCov::Formatter::JSONFormatter
   formatter SimpleCov::Formatter::MultiFormatter.new([
     SimpleCov::Formatter::HTMLFormatter,
-    SimpleCov::Formatter::JSONFormatter
+    SimpleCov::Formatter::JSONFormatter,
+    SimpleCov::Formatter::CoberturaFormatter
   ])
 end
 

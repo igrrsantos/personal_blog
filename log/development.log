@@ -60,3 +60,4 @@ Processing by Api::V1::PostsController#index as HTML
 Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.6ms | Allocations: 2146)
 
 
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /home/igor/studyspace/personal_blog/config/environment.rb:5)
