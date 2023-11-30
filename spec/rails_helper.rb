@@ -7,6 +7,8 @@ require 'simplecov-cobertura'
 
 SimpleCov.root(File.expand_path('..', __dir__))
 SimpleCov.start do
+  add_group "Models", "app/models"
+  add_group "Controllers", "app/controllers"
   # Gerar relatórios em múltiplos formatos
   # formatter SimpleCov::Formatter::JSONFormatter
   formatter SimpleCov::Formatter::MultiFormatter.new([
