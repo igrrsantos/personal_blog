@@ -51,9 +51,10 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rubocop-rails', require: false
+  gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'simplecov-json', require: false
   gem 'simplecov-cobertura', require: false
+  gem 'simplecov-json', require: false
 end
 
 group :development do

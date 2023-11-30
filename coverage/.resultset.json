@@ -499,11 +499,20 @@
           null
         ]
       },
+      "/home/igor/studyspace/manutencao/personal_blog/spec/factories/comments.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
       "/home/igor/studyspace/manutencao/personal_blog/spec/factories/posts.rb": {
         "lines": [
           1,
           1,
-          20,
+          21,
           null,
           null
         ]
@@ -512,9 +521,9 @@
         "lines": [
           1,
           1,
-          19,
-          19,
-          19,
+          25,
+          25,
+          25,
           null,
           null
         ]
@@ -618,6 +627,75 @@
       "/home/igor/studyspace/manutencao/personal_blog/app/controllers/application_controller.rb": {
         "lines": [
           1,
+          null
+        ]
+      },
+      "/home/igor/studyspace/manutencao/personal_blog/spec/models/comment_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          4,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/home/igor/studyspace/manutencao/personal_blog/app/models/comment.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/igor/studyspace/manutencao/personal_blog/spec/models/post_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          4,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/home/igor/studyspace/manutencao/personal_blog/app/models/post.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/igor/studyspace/manutencao/personal_blog/spec/models/user_spec.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          1,
+          2,
+          2,
           null
         ]
       },
@@ -728,15 +806,6 @@
           null
         ]
       },
-      "/home/igor/studyspace/manutencao/personal_blog/app/models/post.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
       "/home/igor/studyspace/manutencao/personal_blog/app/services/post_service.rb": {
         "lines": [
           1,
@@ -786,6 +855,6 @@
         ]
       }
     },
-    "timestamp": 1701354752
+    "timestamp": 1701358252
   }
 }
