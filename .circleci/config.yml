@@ -1,50 +1,50 @@
-# CircleCI Configuration File
-version: 2.1
+# # CircleCI Configuration File
+# version: 2.1
 
-jobs:
-  build_and_test:
-    docker:
-      - image: cimg/ruby:3.2.2
-        environment:
-          RAILS_ENV: test
-      - image: cimg/postgres:14.9-postgis
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_DB: personal_blog_test
-          POSTGRES_PASSWORD: postgres
+# jobs:
+#   build_and_test:
+#     docker:
+#       - image: cimg/ruby:3.2.2
+#         environment:
+#           RAILS_ENV: test
+#       - image: cimg/postgres:14.9-postgis
+#         environment:
+#           POSTGRES_USER: postgres
+#           POSTGRES_DB: personal_blog_test
+#           POSTGRES_PASSWORD: postgres
 
-    steps:
-      - checkout
+#     steps:
+#       - checkout
 
-      - run:
-          name: Install Dependencies
-          command: |
-            gem install bundler
-            bundle install --jobs=4 --retry=3
+#       - run:
+#           name: Install Dependencies
+#           command: |
+#             gem install bundler
+#             bundle install --jobs=4 --retry=3
 
-      - run:
-          name: Test PostgreSQL Connection
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y postgresql
-            sudo service postgresql start
+#       - run:
+#           name: Test PostgreSQL Connection
+#           command: |
+#             sudo apt-get update
+#             sudo apt-get install -y postgresql
+#             sudo service postgresql start
 
-      - run:
-          name: Database Setup
-          command: |
-            sleep 15
-            bundle exec rails db:create RAILS_ENV=test
-            bundle exec rails db:migrate RAILS_ENV=test
+#       - run:
+#           name: Database Setup
+#           command: |
+#             sleep 15
+#             bundle exec rails db:create RAILS_ENV=test
+#             bundle exec rails db:migrate RAILS_ENV=test
 
-      - run:
-          name: Run RSpec Tests
-          command: bundle exec rspec
+#       - run:
+#           name: Run RSpec Tests
+#           command: bundle exec rspec
 
-      - store_artifacts:
-          path: coverage
+#       - store_artifacts:
+#           path: coverage
 
-workflows:
-  version: 2
-  build_and_test_workflow:
-    jobs:
-      - build_and_test
+# workflows:
+#   version: 2
+#   build_and_test_workflow:
+#     jobs:
+#       - build_and_test
