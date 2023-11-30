@@ -64,11 +64,6 @@ jobs:
       run: |
         ruby adjust_simplecov_paths.rb
 
-    - name: Fix Code Coverage Paths
-      working-directory: ./coverage
-      run: |
-        sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.json
-
   sonarcloud:
     name: SonarCloud
     needs: test
