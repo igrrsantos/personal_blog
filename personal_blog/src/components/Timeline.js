@@ -1,8 +1,8 @@
 import React from 'react'
-import Post from './Post'
+import Post from './Post.js'
 import { Col, Container, Row } from 'react-bootstrap'
-import NewPostBox from './NewPostBox'
-import useListPosts from '../hooks/useListPosts'
+import NewPostBox from './NewPostBox.js'
+import useListPosts from '../hooks/useListPosts.js'
 
 const Timeline = () => {
   const { posts, fetchPosts } = useListPosts()

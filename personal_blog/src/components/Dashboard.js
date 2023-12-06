@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import Sidebar from './Sidebar'
-import Timeline from './Timeline'
+import Sidebar from './Sidebar.js'
+import Timeline from './Timeline.js'
 
 function Dashboard() {
   return (

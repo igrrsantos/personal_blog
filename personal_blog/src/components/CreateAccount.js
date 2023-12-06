@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import useCreateUser from '../hooks/useCreateUser'
+import useCreateUser from '../hooks/useCreateUser.js'
 import '../App.css'
 
 function CreateAccount() {

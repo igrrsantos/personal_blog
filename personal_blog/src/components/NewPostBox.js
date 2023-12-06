@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Card, Form, Button } from 'react-bootstrap'
-import useCreatePost from '../hooks/useCreatePost'
+import useCreatePost from '../hooks/useCreatePost.js'
 import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
 

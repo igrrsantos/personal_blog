@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import useCreateSession from '../hooks/useCreateSession'
+import useCreateSession from '../hooks/useCreateSession.js'
 
 function Login() {
   const [params, setParams] = useState({})
