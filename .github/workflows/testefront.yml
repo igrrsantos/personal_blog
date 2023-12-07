@@ -22,7 +22,7 @@ jobs:
         node-version: '20'
 
     - name: Install Dependencies
-      run: yarn install
+      run: cd personal_blog && yarn install
 
     - name: Run Tests
       run: cd personal_blog && ls -la && yarn test
