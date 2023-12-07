@@ -112,7 +112,7 @@ jobs:
           node-version: '20'
 
       - name: Install Dependencies
-        run: yarn install
+        run: yarn install && yarn test
 
-      - name: Run Tests
-        run: yarn test
+      # - name: Run Tests
+      #   run: yarn test
