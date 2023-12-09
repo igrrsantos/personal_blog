@@ -1,8 +1,10 @@
 const axios = require('axios')
+const { describe, test, expect } = require('@jest/globals')
 
 // Função para criar um usuário
 const createUser = async (email, password, name) => {
   try {
+    const start = Date.now()
     const response = await axios.post('http://localhost:3000/api/v1/users', {
       api_v1_user: {
         email,
@@ -10,10 +12,11 @@ const createUser = async (email, password, name) => {
         name
       }
     })
-    return response.data
+    const duration = Date.now() - start
+    return { data: response.data, duration }
   } catch (error) {
     console.log('Erro ao criar usuário:', error)
-    throw error // Você pode ajustar como desejar em caso de erro
+    throw error
   }
 }
 
@@ -32,7 +35,10 @@ describe('POST /api/v1/users', () => {
     const result = await createUser(userEmail, userPassword, userName)
 
     // Verifica se o usuário foi criado com sucesso
-    expect(result).toEqual({ success: true })
+    expect(result.data).toEqual({ success: true })
+
+    // Verifica o tempo de resposta da rota
+    expect(result.duration).toBeLessThan(1000)
 
     // Verifica se a chamada axios.post foi feita com os parâmetros corretos
     expect(axios.post).toHaveBeenCalledWith(

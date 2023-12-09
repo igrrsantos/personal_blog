@@ -3,13 +3,15 @@ const axios = require('axios')
 // Função para criar um usuário
 const createSession = async (email, password) => {
   try {
+    const start = Date.now()
     const response = await axios.post('http://localhost:3000/api/v1/users/sign_in', {
       api_v1_user: {
         email,
         password
       }
     })
-    return response.data
+    const duration = Date.now() - start
+    return { data: response.data, duration }
   } catch (error) {
     console.log('Erro ao criar sessão:', error)
     throw error // Você pode ajustar como desejar em caso de erro
@@ -29,8 +31,11 @@ describe('POST /api/v1/users/sign_in', () => {
     // Chama a função createSession com os parâmetros específicos
     const result = await createSession(userEmail, userPassword)
 
+    // Verifica o tempo de resposta da rota
+    expect(result.duration).toBeLessThan(1000)
+
     // Verifica se o usuário foi criado com sucesso
-    expect(result).toEqual({ success: true })
+    expect(result.data).toEqual({ success: true })
 
     // Verifica se a chamada axios.post foi feita com os parâmetros corretos
     expect(axios.post).toHaveBeenCalledWith(
